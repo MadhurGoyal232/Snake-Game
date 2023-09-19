@@ -5,28 +5,39 @@ window.addEventListener("keydown", move);
 let distanceX = 0;
 let distanceY = 0;
 var myInterval;
-let positionX = Math.floor(Math.random() * 495);
-let positionY = Math.floor(Math.random() * 495);
+let positionX = 0;
+let positionY = 0;
+
 function ballPosition() {
-var found = false;
-  while (positionX % 15 !== 0 && positionY% 15 !== 0)  {
-    ball.style.top = `${positionY}px`
-    ball.style.left = `${positionX}px`
-    console.log("x", positionX)
-    console.log("y", positionY)
+  var found = false;
+  while (!found) {
 
-    found = true;
-
+    positionX = Math.floor(Math.random() * 495);
+    positionY = Math.floor(Math.random() * 495);
+    if (positionX % 15 == 0 && positionY % 15 == 0) {
+      found = true;
+      ball.style.top = `${positionY}px`
+      ball.style.left = `${positionX}px`
+    }
   }
 
 }
 
 ballPosition();
+function overlapping(){
+
+  if(positionX === distanceX && positionY === distanceY){
+    
+    ballPosition();
+    
+  }
+}
 
 
 function move(event) {
-
+  
   if (event.key === "ArrowDown") {
+    overlapping();
     clearInterval(myInterval);
 
     myInterval = setInterval(() => {
@@ -42,6 +53,7 @@ function move(event) {
 
   }
   else if (event.key === "ArrowUp") {
+    overlapping();
     clearInterval(myInterval);
     myInterval = setInterval(() => {
       distanceY -= 15
@@ -52,6 +64,7 @@ function move(event) {
     }, 200);
   }
   else if (event.key === "ArrowLeft") {
+    overlapping();
     clearInterval(myInterval);
     myInterval = setInterval(() => {
 
@@ -64,6 +77,7 @@ function move(event) {
 
   } else if (event.key === "ArrowRight") {
     {
+      overlapping();
       clearInterval(myInterval);
       myInterval = setInterval(() => {
         distanceX += 15
@@ -74,5 +88,11 @@ function move(event) {
       }, 200);
     }
   }
+ 
 }
+
+
+
+  
+
 
