@@ -1,0 +1,27 @@
+*{
+
+    margin : 0px;
+    padding : 0px;
+}
+#gameboard{
+
+height : 510px;
+width : 495px;
+border : 2px solid black;
+margin : auto;
+/* display : flex;
+justify-content: center; */
+margin-top : 35px;
+
+
+}
+
+#snake{
+margin:0;
+padding : 0;
+height: 15px;
+width : 15px;
+background-color: navy;
+position : relative;
+
+}
