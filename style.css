@@ -6,7 +6,7 @@
 #gameboard{
 
 height : 510px;
-width : 495px;
+width : 510px;
 border : 2px solid black;
 margin : auto;
 /* display : flex;
@@ -23,5 +23,15 @@ height: 15px;
 width : 15px;
 background-color: navy;
 position : relative;
+
+}
+
+#ball{
+
+height: 15px;
+width : 15px;
+background-color: red;
+border-radius: 50%;
+position : relative; 
 
 }
